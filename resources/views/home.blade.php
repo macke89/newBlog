@@ -15,6 +15,10 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+                    <h4>
+                        <a href="{{ route('posts.index') }}">POSTS</a>
+                    </h4>
                 </div>
             </div>
         </div>

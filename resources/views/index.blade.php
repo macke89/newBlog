@@ -9,8 +9,7 @@
                         {{--                        <img class="card-img-top" src="https://unsplash.com/photos/LhUdP1CQ6vE" alt="Card image cap">--}}
                         <div class="card-body">
                             <h5 class="card-title">{{ $post->title }}</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
+                            <p class="card-text">{{ Illuminate\Support\Str::limit($post->text, 100) }}</p>
                             <a href="/?post_id={{ $post->id }}" class="btn btn-primary">Read more</a>
                         </div>
                     </div>
