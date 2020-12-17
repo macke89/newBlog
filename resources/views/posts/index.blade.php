@@ -4,6 +4,8 @@
     <div class="col-lg-12">
         <h1 class="my-4">Posts</h1>
 
+        <a href="{{ route('posts.create') }}" class="btn btn-info mb-3">New Post</a>
+
         <table class="table">
             <thead>
             <tr>

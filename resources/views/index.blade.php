@@ -9,7 +9,7 @@
                         {{--                        <img class="card-img-top" src="https://unsplash.com/photos/LhUdP1CQ6vE" alt="Card image cap">--}}
                         <div class="card-body">
                             <h5 class="card-title">{{ $post->title }}</h5>
-                            <p class="card-text">{{ Illuminate\Support\Str::limit($post->text, 100) }}</p>
+                            <p class="card-text">{{ Illuminate\Support\Str::limit($post->text, 120) }}</p>
                             <a href="/?post_id={{ $post->id }}" class="btn btn-primary">Read more</a>
                         </div>
                     </div>
