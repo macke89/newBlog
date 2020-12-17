@@ -12,8 +12,6 @@
                 <label for="text" class="mt-3">Content</label>
                 <textarea name="text" id="text" rows="20" class="form-control"></textarea>
 
-                <input type="hidden" value="{{ $author }}" name="author">
-
                 <input type="submit" class="btn btn-primary mt-3" value="create" name="submit">
             </form>
         </div>
