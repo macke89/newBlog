@@ -10,7 +10,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ $post->title }}</h5>
                             <p class="card-text">{{ Illuminate\Support\Str::limit($post->text, 120) }}</p>
-                            <a href="/?post_id={{ $post->id }}" class="btn btn-primary">Read more</a>
+                            <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">Read more</a>
                         </div>
                     </div>
                 </div>
