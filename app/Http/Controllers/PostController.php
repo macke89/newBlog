@@ -44,7 +44,6 @@ class PostController extends Controller
             'title' => $request->title,
             'text' => $request->text,
             'author' => Auth::user()->name
-
         ]);
 
         return redirect()->route('posts.index');
