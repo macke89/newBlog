@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
+    public function replies() {
+        return $this->hasMany('App\Comment', 'parent_id');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
