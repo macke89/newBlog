@@ -10,8 +10,9 @@ class Post extends Model
     use HasFactory;
     protected $fillable = ['title', 'author', 'text'];
 
-    public function comments()
+//    POST BELONGS TO USER
+    public function user()
     {
-        return $this->belongsTo(Comment::class);
+        return $this->belongsTo(User::class);
     }
 }
