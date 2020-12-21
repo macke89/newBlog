@@ -20,11 +20,14 @@
             </form>
             {{-- PRINT COMMENTS --}}
             @foreach($comments as $comment)
+                <div class="container mb-5">
                 @if($comment->post_id == $post->id && $comment->parent_id == NULL)
-                    <div class="card-body">
-                        <p class="card-text">{{ $comment->text }}</p>
-                        <h6>by {{ $comment->user->name }}</h6>
-                        <h6>at {{ $comment->created_at }}</h6>
+                    <div class="card mb-1">
+                        <p class="card-body">{{ $comment->text }}</p>
+                        <div class="card-header">
+                            <h6>by {{ $comment->user->name }}</h6>
+                            <h6>at {{ $comment->created_at }}</h6>
+                        </div>
                     </div>
 
                     <button class="btn btn-secondary mb-2" type="button" data-toggle="collapse" data-target="#collapseExample{{ $comment->id }}" aria-expanded="false" aria-controls="collapseExample">
@@ -45,7 +48,7 @@
                     {{-- PRINT ANSWERS--}}
                     @foreach($replies as $reply)
                         @if($reply->parent_id == $comment->id)
-                            <div class="container">
+                            <div class="container mb-3">
                                 <div class="card">
                                     <div class="card-body">
                                         {{ $reply->text }}
@@ -60,6 +63,7 @@
                     @endforeach
 
                 @endif
+</div>
             @endforeach
         </div>
     </div>
