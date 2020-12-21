@@ -8,11 +8,6 @@ use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
-    public function replies() {
-        return $this->hasMany('App\Comment', 'parent_id');
-    }
-
-
     /**
      * Display a listing of the resource.
      *
@@ -44,7 +39,8 @@ class CommentController extends Controller
         Comment::create([
             'text' => $request->text,
             'post_id' => $request->post_id,
-            'author' => Auth::user()->name
+            'parent_id' => $request->parent_id,
+            'user_id' => Auth::user()->id
         ]);
 
         return redirect()->route('posts.show', $request->post_id);

@@ -9,7 +9,12 @@ class Comment extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['text', 'author', 'post_id', 'parent_id'];
+    protected $fillable = ['text', 'user_id', 'post_id', 'parent_id'];
+
+//    COMMENT HAS MANY REPLIES
+    public function replies() {
+        return $this->hasMany('App\Models\Comment', 'parent_id');
+    }
 
 //    COMMENT BELONGS TO POST
     public function post()

@@ -43,7 +43,7 @@ class PostController extends Controller
         Post::create([
             'title' => $request->title,
             'text' => $request->text,
-            'author' => Auth::user()->name
+            'user_id' => Auth::user()->id
         ]);
 
         return redirect()->route('posts.index');
@@ -59,8 +59,9 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         $comments = Comment::with('post')->get();
+        $replies = Comment::with('replies')->where('parent_id','!=',0)->get(['id','parent_id','text', 'user_id', 'created_at']);
 
-        return view('posts.show', compact('post', 'comments'));
+        return view('posts.show', compact('post', 'comments', 'replies'));
     }
 
     /**
