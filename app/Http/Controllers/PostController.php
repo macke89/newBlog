@@ -40,10 +40,14 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
+        $path = $request->input('photo')->store('photos', 'public');
+        dd($path);
+
         Post::create([
             'title' => $request->title,
             'text' => $request->text,
-            'user_id' => Auth::user()->id
+            'user_id' => Auth::user()->id,
+            'photo' => $path
         ]);
 
         return redirect()->route('posts.index');
