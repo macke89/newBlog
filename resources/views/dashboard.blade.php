@@ -16,9 +16,9 @@
 
                     {{ __('You are logged in!') }}
 
-                    <h4>
+                    <h5 class="m-3">
                         <a href="{{ route('posts.index') }}">POSTS</a>
-                    </h4>
+                    </h5>
                 </div>
             </div>
         </div>

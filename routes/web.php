@@ -23,7 +23,7 @@ Route::get('/about', function () {
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 Route::get('/', [IndexController::class, 'index'])->name('index');
 
 Route::resource('posts', PostController::class)->middleware('auth');
