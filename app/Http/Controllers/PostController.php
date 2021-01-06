@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePostRequest;
 use App\Models\Comment;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,7 +30,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        $tags = Tag::all();
+
+        return view('posts.create', compact('tags'));
     }
 
     /**
@@ -61,10 +64,11 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::findOrFail($id);
+        $tag = Tag::findOrFail($id);
         $comments = Comment::with('post')->get();
         $replies = Comment::with('replies')->where('parent_id','!=',0)->get(['id','parent_id','text', 'user_id', 'created_at']);
 
-        return view('posts.show', compact('post', 'comments', 'replies'));
+        return view('posts.show', compact('post', 'comments', 'replies', 'tag'));
     }
 
     /**

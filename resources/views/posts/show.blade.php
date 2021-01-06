@@ -11,7 +11,11 @@
                 <img src="{{ $post->photo }}" alt="Post Image" class="img-fluid">
             {{-- SHOW TEXT --}}
             <p>{{ $post->text }}</p>
-            {{-- LEAVE COMMENT--}}
+            {{-- TAGS --}}
+            <div class="list-group-horizontal">
+                {{ $tag->name }}
+            </div>
+            {{-- LEAVE COMMENT --}}
             <form action="{{ route('comments.store') }}" method="POST">
                 @csrf
                 <label for="comment-text" class="mt-3">Comment</label>
