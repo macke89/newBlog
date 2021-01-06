@@ -24,31 +24,17 @@
         return view('about');
     })->name('about');
 
-    Auth::routes();
-
-//    DASHBOARD
-    Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+    Auth::routes(['verify' => true]);
 
 //    INDEXPAGE
     Route::get('/', [IndexController::class, 'index'])->name('index');
 
-//    FORGOT PASSWORD
-    Route::get('/forgot-password', function () {
-        return view('auth.passwords.email');
-    })->middleware('guest')->name('password.request');
-
-    Route::post('/forgot-password', function (Request $request) {
-        $request->validate(['email' => 'required|email']);
-
-        $status = Password::sendResetLink(
-            $request->only('email')
-        );
-
-        return $status === Password::RESET_LINK_SENT
-            ? back()->with(['status' => __($status)])
-            : back()->withErrors(['email' => __($status)]);
-    })->middleware('guest')->name('password.email');
-
-
-    Route::resource('posts', PostController::class)->middleware('auth');
-    Route::resource('comments', CommentController::class)->middleware('auth');
+//    AUTH ROUTES
+    Route::group(['midleware' => ['auth', 'verified']], function() {
+//        DASHBOARD
+        Route::get('/home', [HomeController::class, 'index'])->name('home');
+//        POSTS
+        Route::resource('posts', PostController::class);
+//        COMMENTS
+        Route::resource('comments', CommentController::class);
+    });

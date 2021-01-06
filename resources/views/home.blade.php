@@ -19,6 +19,9 @@
                     <h5 class="m-3">
                         <a href="{{ route('posts.index') }}">POSTS</a>
                     </h5>
+                    <h5 class="m-3">
+{{--                        <a href="{{ route('auth.passwords.reset') }}">RESET PASSWORD</a>--}}
+                    </h5>
                 </div>
             </div>
         </div>

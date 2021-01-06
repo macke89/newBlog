@@ -6,6 +6,9 @@
         <div class="col-lg-12">
             {{-- SHOW TITLE --}}
             <h1>{{ $post->title }}</h1>
+            <h6>by {{ $post->user->name }}</h6>
+            {{-- SHOW PHOTO--}}
+                <img src="{{ $post->photo }}" alt="Post Image" class="img-fluid">
             {{-- SHOW TEXT --}}
             <p>{{ $post->text }}</p>
             {{-- LEAVE COMMENT--}}
