@@ -30,7 +30,8 @@
 
                             <div class="form-group row">
                                 <label for="text"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Content') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">{{ __('Content') }}
+                                </label>
 
                                 <div class="col-md-6">
                                     <textarea id="text" type="text" rows="20"
@@ -46,17 +47,17 @@
                             </div>
 
 
-
                             <div class="form-group row">
                                 <label for="tags"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Content') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">{{ __('Tags') }}</label>
 
                                 <div class="col-md-6">
-                                    @foreach($tags as $tag)
-                                        <input type="checkbox" name="tags[]" value="{{ $tag->id }}" />
-                                        {{ $tag->name }}
-                                        <br />
-                                    @endforeach
+                                    <select name="tags[]" id="tags" multiple class="form-control select2">
+                                        @foreach($tags as $tag)
+                                            <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                                            <br/>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
 
