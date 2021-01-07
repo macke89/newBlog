@@ -13,7 +13,9 @@
             <p>{{ $post->text }}</p>
             {{-- TAGS --}}
             <div class="list-group-horizontal">
-                {{ $tag->name }}
+                @foreach($tags as $tag)
+                    {{ $tag->name }}
+                @endforeach
             </div>
             {{-- LEAVE COMMENT --}}
             <form action="{{ route('comments.store') }}" method="POST">

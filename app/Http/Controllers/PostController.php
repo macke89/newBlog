@@ -64,11 +64,12 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::findOrFail($id);
-        $tag = Tag::findOrFail($id);
+        $tags = $post->tags;
+
         $comments = Comment::with('post')->get();
         $replies = Comment::with('replies')->where('parent_id','!=',0)->get(['id','parent_id','text', 'user_id', 'created_at']);
 
-        return view('posts.show', compact('post', 'comments', 'replies', 'tag'));
+        return view('posts.show', compact('post', 'comments', 'replies', 'tags'));
     }
 
     /**
