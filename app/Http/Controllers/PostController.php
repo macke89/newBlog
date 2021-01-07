@@ -18,7 +18,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::where('user_id', auth()->id())->get();
 
         return view('posts.index', compact('posts'));
     }
@@ -81,8 +81,10 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::findOrFail($id);
+//        dd($post->tags);
+        $tags = Tag::all();
 
-        return view('posts.edit', compact('post'));
+        return view('posts.edit', compact('post', 'tags'));
     }
 
     /**
