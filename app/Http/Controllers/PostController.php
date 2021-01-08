@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\UpdatePostRequest;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Tag;
@@ -49,8 +50,10 @@ class PostController extends Controller
             'title' => $request->title,
             'text' => $request->text,
             'user_id' => Auth::user()->id,
-            'photo' => $path
+            'photo' => url($path)
         ]);
+
+        $post->tags()->attach($request->tags);
 
         return redirect()->route('posts.show', $post);
     }
@@ -61,9 +64,8 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        $post = Post::findOrFail($id);
         $tags = $post->tags;
 
         $comments = Comment::with('post')->get();
@@ -78,10 +80,8 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        $post = Post::findOrFail($id);
-//        dd($post->tags);
         $tags = Tag::all();
 
         return view('posts.edit', compact('post', 'tags'));
@@ -94,12 +94,17 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdatePostRequest $request, Post $post)
     {
-        $post = Post::find($id);
+//        $post->update($request->validated());
+//        dd($request->tags);
+        $post->tags()->sync($request->tags);
+        $path = '/storage/photos/' . $request->photo;
+//        dd($path);
         $post->update([
             'title' => $request->title,
-            'text' => $request->text
+            'text' => $request->text,
+            'photo' => url($path)
         ]);
 
         return redirect()->route('posts.index');

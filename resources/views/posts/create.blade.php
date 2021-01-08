@@ -40,8 +40,7 @@
 
                 <select name="tags[]" id="tags" multiple class="form-control select2">
                     @foreach($tags as $tag)
-                        <option>{{ $tag->name }}</option>
-                        <br/>
+                        <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                     @endforeach
                 </select>
 

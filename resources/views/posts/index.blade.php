@@ -23,11 +23,12 @@
                                     <td>{{ $post->title }}</td>
                                     <td>{{ $post->user->name }}</td>
                                     <td>
-                                        <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary">Edit</a>
+                                        <a href="{{ route('posts.show', $post) }}" class="btn btn-sm btn-primary">View</a>
+                                        <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-sm btn-primary">Edit</a>
                                         <form action="{{ route('posts.destroy', $post->id) }}" method="POST" style="display: inline">
                                             @method('DELETE')
                                             @csrf
-                                            <input type="submit" class="btn btn-danger" value="Delete" onclick="return confirm('Are you sure?')">
+                                            <input type="submit" class="btn btn-sm btn-danger" value="Delete" onclick="return confirm('Are you sure?')">
                                         </form>
                                     </td>
                                 </tr>
