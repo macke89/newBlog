@@ -31,7 +31,8 @@ class UpdatePostRequest extends FormRequest
                 Rule::unique('posts')->ignore($this->post)
             ],
             'text' => 'required|max:5000',
-            'tags' => 'required'
+            'tags' => 'required',
+            'photo' => 'required'
         ];
     }
 }
