@@ -33,11 +33,7 @@
                 <label for="tags">{{ __('Tags') }}</label>
                 <select name="tags[]" id="tags" multiple class="form-control select2 @error('tags') is-invalid @enderror">
                     @foreach($tags as $tag)
-                        <option
-                            value="{{ $tag->id }}"
-                            @if ($post->tags->contains($tag)) selected @endif>
-                            {{ $tag->name }}
-                        </option>
+                        <option value="{{ $tag->id }}" @if ($post->tags->contains($tag)) selected @endif>{{ $tag->name }}</option>
                     @endforeach
                 </select>
 

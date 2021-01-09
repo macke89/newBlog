@@ -40,11 +40,17 @@
                     {{ __('Tags') }}
                 </label>
 
-                <select name="tags[]" id="tags" multiple class="form-control select2">
+                <select name="tags[]" id="tags" multiple class="form-control select2 @error('tags') is-invalid @enderror">
                     @foreach($tags as $tag)
                         <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                     @endforeach
                 </select>
+
+                @error('tags')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
 
                 {{--PHOTO--}}
                 <label for="photo">
