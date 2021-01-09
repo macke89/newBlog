@@ -7,12 +7,13 @@
             <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
                 @csrf
 
-
+                {{--TITLE--}}
                 <label for="title">
                     {{ __('Title') }}
                 </label>
 
-                <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" required autocomplete="title" autofocus>
+                <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title"
+                       value="{{ old('title') }}" required autocomplete="title" autofocus>
 
                 @error('title')
                 <span class="invalid-feedback" role="alert">
@@ -20,12 +21,13 @@
                 </span>
                 @enderror
 
-
+                {{--CONTENT--}}
                 <label for="text">
                     {{ __('Content') }}
                 </label>
 
-                <textarea id="text" type="text" rows="20" class="form-control @error('text') is-invalid @enderror" name="text" required autocomplete="text">{{ old('text') }}</textarea>
+                <textarea id="text" type="text" rows="20" class="form-control @error('text') is-invalid @enderror"
+                          name="text" required autocomplete="text">{{ old('text') }}</textarea>
 
                 @error('text')
                 <span class="invalid-feedback" role="alert">
@@ -33,7 +35,7 @@
                 </span>
                 @enderror
 
-
+                {{--TAGS--}}
                 <label for="tags">
                     {{ __('Tags') }}
                 </label>
@@ -44,21 +46,22 @@
                     @endforeach
                 </select>
 
-
+                {{--PHOTO--}}
                 <label for="photo">
                     {{ __('Photo') }}
                 </label>
 
-                <input id="photo" type="file" class="form-control @error('photo') is-invalid @enderror" name="photo" required autocomplete="photo">
+                <input id="photo" type="file" class="form-control @error('photo') is-invalid @enderror" name="photo"
+                       required autocomplete="photo">
 
                 @error('photo')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
                 @enderror
-                <br />
+                <br/>
 
-
+                {{--SUBMIT--}}
                 <button type="submit" class="btn btn-primary" name="submit" value="create">
                     {{ __('Create Post') }}
                 </button>

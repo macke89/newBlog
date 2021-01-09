@@ -27,8 +27,8 @@ class UpdatePostRequest extends FormRequest
         return [
             'title' => [
                 'required',
-                'min:5',
-                Rule::unique('posts')->ignore($this->post)
+                'min:5'
+//                Rule::unique('posts')->ignore($this->post)
             ],
             'text' => 'required|max:5000',
             'tags' => 'required',
