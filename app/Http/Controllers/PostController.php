@@ -44,13 +44,15 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        $path = '/storage/' . $request->file('photo')->store('photos', 'public');
+        $path = url('/storage/' . $request->file('photo')->store('photos', 'public'));
+//        $image = $request->file('photo')->getClientOriginalName();
+//        $request->file('photo')->storeAs('posts', $image);
 
         $post = Post::create([
             'title' => $request->title,
             'text' => $request->text,
             'user_id' => Auth::user()->id,
-            'photo' => url($path)
+            'photo' => $path
         ]);
 
         $post->tags()->attach($request->tags);
@@ -103,11 +105,11 @@ class PostController extends Controller
 //        $post->update($request->validated());
 //        dd($request->tags);
         $post->tags()->sync($request->tags);
-        $path = '/storage/' . $request->file('photo')->store('photos', 'public');
+        $path = url('/storage/' . $request->file('photo')->store('photos', 'public'));
         $post->update([
             'title' => $request->title,
             'text' => $request->text,
-            'photo' => url($path)
+            'photo' => $path
         ]);
 
         return redirect()->route('posts.index')->with('message', 'Successfully updated');

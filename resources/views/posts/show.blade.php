@@ -17,6 +17,12 @@
                     {{ $tag->name }}
                 @endforeach
             </div>
+            {{--EDIT POST IF AUTHOR--}}
+            @auth
+                @if($post->user_id == auth()->id())
+                    <a href="{{ route('posts.edit', $post) }}" class="btn btn-primary">EDIT</a>
+                @endif
+            @endauth
             {{-- LEAVE COMMENT --}}
             <form action="{{ route('comments.store') }}" method="POST">
                 @csrf
