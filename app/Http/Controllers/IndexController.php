@@ -9,7 +9,9 @@ class IndexController extends Controller
 {
     public function index()
     {
-        $posts = Post::all();
+//        $posts = Post::all();
+        $posts = Post::where('user_id', '>', '0')->paginate(12);
+//        dd($posts);
 
         return view('index', compact('posts'));
     }

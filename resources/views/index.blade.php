@@ -10,12 +10,18 @@
                         <img class="card-img-top" src="{{ $post->photo }}" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{ $post->title }}</h5>
-                            <p class="card-text">{{ Illuminate\Support\Str::limit($post->text, 120) }}</p>
+                            <p class="card-text">
+                                {{ Illuminate\Support\Str::limit($post->text, 120) }}
+                                <br />
+                                <br />
+                                {{ $post->created_at->diffForHumans() }}
+                            </p>
                             <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">Read more</a>
                         </div>
                     </div>
                 </div>
             @endforeach
+            {{ $posts->links() }}
         </div>
     </div>
 @endsection

@@ -98,7 +98,8 @@
         {
             $comment = Comment::with('post')->findOrFail($comment_id);
 
-            if (!CommentVote::where('comment_id', $comment_id)->where('user_id', auth()->id())->count()) {
+            if (!CommentVote::where('comment_id', $comment_id)->where('user_id', auth()->id())->count()
+            && in_array($vote, [-1, 1]) && $comment->user_id != auth()->id()) {
 
                 CommentVote::create([
                     'comment_id' => $comment_id,
