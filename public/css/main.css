@@ -1,11 +1,3 @@
-.l-blue-backg {
-    background-color: #dbebff;
-}
-
-.test {
-    height: 100px;
-}
-
 .vertical-center {
     display: flex;
     justify-content: center;

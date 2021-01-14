@@ -30,11 +30,15 @@
     Route::get('/', [IndexController::class, 'index'])->name('index');
 
 //    AUTH ROUTES
-    Route::group(['midleware' => ['auth', 'verified']], function() {
+    Route::group(['middleware' => ['auth', 'verified']], function() {
 //        DASHBOARD
         Route::get('/home', [HomeController::class, 'index'])->name('home');
 //        POSTS
         Route::resource('posts', PostController::class);
 //        COMMENTS
         Route::resource('comments', CommentController::class);
+//        VOTES POSTS
+//        Route::get('post/{post_id}/vote/{vote}', [CommentController::class, 'vote'])->name('post.vote');
+//        VOTES COMMENTS
+        Route::get('/comment/{comment_id}/vote/{vote}', [CommentController::class,'vote'])->name('comment.vote');
     });

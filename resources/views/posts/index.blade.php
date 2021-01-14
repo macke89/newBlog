@@ -10,7 +10,7 @@
                     <div class="card-body">
                         @if(session('message'))
                             <div class="alert alert-info">{{ session('message') }}</div>
-                            <br />
+                            <br/>
                         @endif
 
                         <a href="{{ route('posts.create') }}" class="btn btn-primary mb-3">New Post</a>
@@ -27,9 +27,11 @@
                                     <td>{{ $post->title }}</td>
                                     <td>{{ $post->user->name }}</td>
                                     <td>
-                                        <a href="{{ route('posts.show', $post) }}" class="btn btn-sm btn-primary">View</a>
+                                        <a href="{{ route('posts.show', $post) }}"
+                                           class="btn btn-sm btn-primary">View</a>
                                         <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-sm btn-primary">Edit</a>
-                                        <form action="{{ route('posts.destroy', $post) }}" method="POST" style="display: inline">
+                                        <form action="{{ route('posts.destroy', $post) }}" method="POST"
+                                              style="display: inline">
                                             @csrf
                                             @method('DELETE')
                                             <input type="submit"

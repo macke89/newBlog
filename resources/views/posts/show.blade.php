@@ -43,9 +43,13 @@
                             <div class="row m-0">
                                 <div class="col-1 text-center bg-info p-0 vertical-center">
                                     <div>
-                                        <i class="fa fa-2x fa-sort-asc text-white" aria-hidden="true"></i>
-                                        <h6 class="text-white">0</h6>
-                                        <i class="fa fa-2x fa-sort-desc text-white" aria-hidden="true"></i>
+                                        <a href="{{ route('comment.vote', [$comment->id, 1]) }}">
+                                            <i class="fa fa-2x fa-sort-asc text-white" aria-hidden="true"></i>
+                                        </a>
+                                        <h2 class="text-white">{{ $comment->votes }}</h2>
+                                        <a href="{{ route('comment.vote', [$comment->id, -1]) }}">
+                                            <i class="fa fa-2x fa-sort-desc text-white" aria-hidden="true"></i>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="col-11 pl-0">
@@ -86,8 +90,11 @@
                                         <div class="row m-0">
                                             <div class="col-1 text-center bg-info p-0 vertical-center">
                                                 <div>
-                                                    <i class="fa fa-2x fa-sort-asc text-white" aria-hidden="true"></i>
-                                                    <h6 class="text-white">0</h6>
+                                                    <a href="{{ route('comment.vote', [$comment->id, 1]) }}">
+                                                        <i class="fa fa-2x fa-sort-asc text-white"
+                                                           aria-hidden="true"></i>
+                                                    </a>
+                                                    <h2 class="text-white">{{ $post->votes }}</h2>
                                                     <i class="fa fa-2x fa-sort-desc text-white" aria-hidden="true"></i>
                                                 </div>
                                             </div>
@@ -100,9 +107,7 @@
                                                     <h6>at {{ $reply->created_at }}</h6>
                                                 </div>
                                             </div>
-
                                         </div>
-
                                     </div>
                                 </div>
                             @endif

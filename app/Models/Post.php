@@ -10,7 +10,7 @@ class Post extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['title', 'user_id', 'text', 'photo', 'tags'];
+    protected $fillable = ['title', 'user_id', 'text', 'photo', 'tags', 'votes'];
 
 
 
@@ -24,5 +24,11 @@ class Post extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
+    }
+
+//    POST HAS MANY COMMENTS
+    public function comments()
+    {
+        return $this->belongsToMany(Comment::class);
     }
 }
