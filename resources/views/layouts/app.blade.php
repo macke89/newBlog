@@ -17,9 +17,16 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 
+    {{--Icons--}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    {{--Own Styles--}}
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+
+
 </head>
 <body>
     <div id="app">
@@ -86,6 +93,7 @@
         @yield('content')
     </div>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script src="https://use.fontawesome.com/e4cf69f94a.js"></script>
     <script>
         $(document).ready(function() {
             $('.select2').select2();
