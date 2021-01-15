@@ -118,7 +118,7 @@
                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                                  data-parent="#accordion">
                                 <div class="card-body">
-                                    @foreach(\App\Models\Post::latest()->take(5)->get() as $post)
+                                    @foreach($newestPosts as $post)
                                         <a href="{{ route('posts.show', $post) }}"><b>{{ $post->title }}</b></a>
                                         <div>by {{ $post->user->name }}</div>
                                         <div>{{ $post->created_at->diffForHumans() }}</div>
