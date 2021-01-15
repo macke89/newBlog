@@ -29,16 +29,17 @@
 //    INDEXPAGE
     Route::get('/', [IndexController::class, 'index'])->name('index');
 
+//    POSTS
+    Route::get('posts/{id}', [PostController::class, 'show'])->name('posts.show');
+
 //    AUTH ROUTES
     Route::group(['middleware' => ['auth', 'verified']], function() {
 //        DASHBOARD
         Route::get('/home', [HomeController::class, 'index'])->name('home');
 //        POSTS
-        Route::resource('posts', PostController::class);
+        Route::resource('posts', PostController::class)->except('show');
 //        COMMENTS
         Route::resource('comments', CommentController::class);
-//        VOTES POSTS
-//        Route::get('post/{post_id}/vote/{vote}', [CommentController::class, 'vote'])->name('post.vote');
 //        VOTES COMMENTS
         Route::get('/comment/{comment_id}/vote/{vote}', [CommentController::class,'vote'])->name('comment.vote');
     });
