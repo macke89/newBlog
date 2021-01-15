@@ -38,19 +38,12 @@
             @foreach($comments as $comment)
                 <div class="container mt-5">
 
+
                     @if($comment->post_id == $post->id && $comment->parent_id == NULL)
                         <div class="card mb-2">
                             <div class="row m-0">
                                 <div class="col-1 text-center bg-info p-0 vertical-center">
-                                    <div>
-                                        <a href="{{ route('comment.vote', [$comment->id, 1]) }}">
-                                            <i class="fa fa-2x fa-sort-asc text-white" aria-hidden="true"></i>
-                                        </a>
-                                        <h2 class="text-white">{{ $comment->votes }}</h2>
-                                        <a href="{{ route('comment.vote', [$comment->id, -1]) }}">
-                                            <i class="fa fa-2x fa-sort-desc text-white" aria-hidden="true"></i>
-                                        </a>
-                                    </div>
+                                    @livewire('comment-votes', ['comment' => $comment])
                                 </div>
                                 <div class="col-11 pl-0">
                                     <p class="card-body">{{ $comment->text }}</p>
@@ -94,8 +87,11 @@
                                                         <i class="fa fa-2x fa-sort-asc text-white"
                                                            aria-hidden="true"></i>
                                                     </a>
-                                                    <h2 class="text-white">{{ $post->votes }}</h2>
-                                                    <i class="fa fa-2x fa-sort-desc text-white" aria-hidden="true"></i>
+                                                    <h2 class="text-white">{{ $comment->votes }}</h2>
+                                                    <a href="{{ route('comment.vote', [$comment->id, -1]) }}">
+                                                        <i class="fa fa-2x fa-sort-desc text-white"
+                                                           aria-hidden="true"></i>
+                                                    </a>
                                                 </div>
                                             </div>
                                             <div class="col-11 pl-0">

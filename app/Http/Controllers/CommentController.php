@@ -43,7 +43,8 @@
                 'text' => $request->text,
                 'post_id' => $request->post_id,
                 'parent_id' => $request->parent_id,
-                'user_id' => Auth::user()->id
+                'user_id' => Auth::user()->id,
+                'vote' => 0
             ]);
 
             return redirect()->route('posts.show', $request->post_id);
@@ -94,22 +95,22 @@
             //
         }
 
-        public function vote($comment_id, $vote)
-        {
-            $comment = Comment::with('post')->findOrFail($comment_id);
-
-            if (!CommentVote::where('comment_id', $comment_id)->where('user_id', auth()->id())->count()
-            && in_array($vote, [-1, 1]) && $comment->user_id != auth()->id()) {
-
-                CommentVote::create([
-                    'comment_id' => $comment_id,
-                    'user_id' => auth()->id(),
-                    'vote' => $vote
-                ]);
-
-                $comment->increment('votes', $vote);
-            }
-
-            return redirect()->route('posts.show', $comment->post->id);
-        }
+//        public function vote($comment_id, $vote)
+//        {
+//            $comment = Comment::with('post')->findOrFail($comment_id);
+//
+//            if (!CommentVote::where('comment_id', $comment_id)->where('user_id', auth()->id())->count()
+//            && in_array($vote, [-1, 1]) && $comment->user_id != auth()->id()) {
+//
+//                CommentVote::create([
+//                    'comment_id' => $comment_id,
+//                    'user_id' => auth()->id(),
+//                    'vote' => $vote
+//                ]);
+//
+//                $comment->increment('votes', $vote);
+//            }
+//
+//            return redirect()->route('posts.show', $comment->post->id);
+//        }
     }

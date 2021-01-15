@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(Admin::class);
+        $this->call(AdminSeeder::class);
         User::factory(40)->create();
         Post::factory(80)->create();
         $this->call(TagSeeder::class);

@@ -22,6 +22,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @livewireStyles
 
     {{--Own Styles--}}
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
@@ -103,7 +104,7 @@
                     @yield('content')
                 </div>
                 <div class="col-md-4">
-                    {{--                    ------------------------------------------------------------------------}}
+                    {{--SIDEBAR--}}
                     <div id="accordion">
                         <div class="card">
                             <div class="card-header" id="headingOne">
@@ -170,7 +171,6 @@
                             </div>
                         </div>
                     </div>
-                    {{--                    ------------------------------------------------------------------------}}
                 </div>
             </div>
         </div>
@@ -246,6 +246,7 @@
     </footer>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+@livewireScripts
 <script src="https://use.fontawesome.com/e4cf69f94a.js"></script>
 <script>
     $(document).ready(function () {

@@ -27,4 +27,10 @@ class Comment extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+//    COMMENT HAS VOTES
+//    public function commentVotes()
+//    {
+//        return $this->hasMany(Comment::class);
+//    }
 }
