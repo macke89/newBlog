@@ -1,30 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+    <div class="card">
+        <div class="card-header">{{ __('Dashboard') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-
-                    <h5 class="m-3">
-                        <a href="{{ route('posts.index') }}">POSTS</a>
-                    </h5>
-                    <h5 class="m-3">
-{{--                        <a href="{{ route('auth.passwords.reset') }}">RESET PASSWORD</a>--}}
-                    </h5>
+        <div class="card-body">
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
                 </div>
-            </div>
+            @endif
+
+            {{ __('You are logged in!') }}
         </div>
     </div>
-</div>
 @endsection
