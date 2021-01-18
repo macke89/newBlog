@@ -20,6 +20,8 @@ class CreatePostsTable extends Migration
             $table->text('text');
             $table->string('photo')->default('none');
             $table->timestamps();
+            $table->softDeletes();
+            $table->integer('votes')->default(0);
         });
     }
 

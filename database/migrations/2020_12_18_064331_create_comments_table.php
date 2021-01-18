@@ -20,6 +20,7 @@ class CreateCommentsTable extends Migration
             $table->unsignedBigInteger('post_id');
             $table->string('text', 400);
             $table->timestamps();
+            $table->integer('votes')->default(0);
 
             $table->foreign('post_id')->references('id')->on('posts');
             $table->foreign('user_id')->references('id')->on('users');
