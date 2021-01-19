@@ -18,22 +18,25 @@
     | contains the "web" middleware group. Now create something great!
     |
     */
+//    INDEXPAGE
+    Route::get('/', [IndexController::class, 'index'])->name('index');
 
 //    ABOUT PAGE
     Route::get('/about', function () {
         return view('about');
     })->name('about');
 
-    Auth::routes(['verify' => true]);
 
-//    INDEXPAGE
-    Route::get('/', [IndexController::class, 'index'])->name('index');
+
+
 
 //    POSTS
     Route::get('posts/{id}', [PostController::class, 'show'])->name('posts.show');
 
+    Auth::routes(['verify' => true]);
+
 //    AUTH ROUTES
-    Route::group(['middleware' => ['auth', 'verified']], function() {
+    Route::group(['middleware' => ['auth', 'verified']], function () {
 //        DASHBOARD
         Route::get('/home', [HomeController::class, 'index'])->name('home');
 //        POSTS
@@ -41,5 +44,5 @@
 //        COMMENTS
         Route::resource('comments', CommentController::class);
 //        VOTES COMMENTS
-        Route::get('/comment/{comment_id}/vote/{vote}', [CommentController::class,'vote'])->name('comment.vote');
+        Route::get('/comment/{comment_id}/vote/{vote}', [CommentController::class, 'vote'])->name('comment.vote');
     });

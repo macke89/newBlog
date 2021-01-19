@@ -29,6 +29,8 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
 
         // Using closure based composers...
-        View::share('newestPosts', Post::latest()->take(5)->get());
+//        if (!app()->runningInConsole()) {
+//            View::share('newestPosts', Post::latest()->take(5)->get());
+//        }
     }
 }

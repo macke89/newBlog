@@ -10,13 +10,8 @@ class IndexController extends Controller
 {
     public function index()
     {
-//        $posts = Post::all();
-//        $posts = Post::where('user_id', '>', '0')->latest('id')->paginate(15);
-//        $posts = Post::paginate(15);
+
         $posts = DB::table('posts')->latest('id')->paginate(15);
-//        dd($posts);
-//        $posts->latest('id');
-//        dd($posts);
 
         return view('index', compact('posts'));
     }
