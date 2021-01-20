@@ -20,7 +20,7 @@
                 </tr>
                 </thead>
                 @foreach($posts as $post)
-                    <tr>
+                    <tr class="phpunit-newposts">
                         <td>{{ $post->title }}</td>
                         <td>{{ $post->user->name }}</td>
                         <td>
