@@ -26,8 +26,8 @@ class StorePostRequest extends FormRequest
         return [
             'title' => 'required|min:5|unique:posts',
             'text' => 'required|max:5000',
-            'photo' => 'required',
-            'tags' => 'required'
+            'photo' => '',
+            'tags' => ''
         ];
     }
 }

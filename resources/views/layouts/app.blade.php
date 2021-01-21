@@ -120,12 +120,12 @@
                                  data-parent="#accordion">
                                 <div class="card-body">
                                     FILLER
-{{--                                    @foreach($newestPosts as $post)--}}
-{{--                                        <a href="{{ route('posts.show', $post) }}"><b>{{ $post->title }}</b></a>--}}
-{{--                                        <div>by {{ $post->user->name }}</div>--}}
-{{--                                        <div>{{ $post->created_at->diffForHumans() }}</div>--}}
-{{--                                        <hr/>--}}
-{{--                                    @endforeach--}}
+                                    @foreach($newestPosts as $post)
+                                        <a href="{{ route('posts.show', $post) }}"><b>{{ $post->title }}</b></a>
+                                        <div>by {{ $post->user->name }}</div>
+                                        <div>{{ $post->created_at->diffForHumans() }}</div>
+                                        <hr/>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>

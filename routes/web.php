@@ -26,12 +26,8 @@
         return view('about');
     })->name('about');
 
-
-
-
-
 //    POSTS
-    Route::get('posts/{id}', [PostController::class, 'show'])->name('posts.show');
+    Route::get('posts/show/{id}', [PostController::class, 'show'])->name('posts.show');
 
     Auth::routes(['verify' => true]);
 
@@ -40,6 +36,7 @@
 //        DASHBOARD
         Route::get('/home', [HomeController::class, 'index'])->name('home');
 //        POSTS
+//        Route::resource('posts', PostController::class);
         Route::resource('posts', PostController::class)->except('show');
 //        COMMENTS
         Route::resource('comments', CommentController::class);

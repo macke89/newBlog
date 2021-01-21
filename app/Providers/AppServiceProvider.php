@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
 
         // Using closure based composers...
 //        if (!app()->runningInConsole()) {
-//            View::share('newestPosts', Post::latest()->take(5)->get());
+            View::share('newestPosts', Post::latest()->take(5)->get());
 //        }
     }
 }

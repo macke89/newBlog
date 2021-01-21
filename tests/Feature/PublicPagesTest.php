@@ -31,7 +31,7 @@ class PublicPagesTest extends TestCase
     {
         $post = Post::first();
 
-        $response = $this->get('/posts/' . $post->id);
+        $response = $this->get('/posts/show/' . $post->id);
 
         $response->assertStatus(200);
     }
