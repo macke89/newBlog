@@ -103,8 +103,6 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-//        $post->update($request->validated());
-//        dd($request->tags);
         $post->tags()->sync($request->tags);
         $path = url('/storage/' . $request->file('photo')->store('photos', 'public'));
         $post->update([

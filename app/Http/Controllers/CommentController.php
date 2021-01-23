@@ -81,7 +81,7 @@
          */
         public function update(Request $request, $id)
         {
-            //
+            dd($request);
         }
 
         /**
@@ -92,25 +92,7 @@
          */
         public function destroy($id)
         {
-            //
+            $comment = Comment::find($id);
+            $comment->delete();
         }
-
-//        public function vote($comment_id, $vote)
-//        {
-//            $comment = Comment::with('post')->findOrFail($comment_id);
-//
-//            if (!CommentVote::where('comment_id', $comment_id)->where('user_id', auth()->id())->count()
-//            && in_array($vote, [-1, 1]) && $comment->user_id != auth()->id()) {
-//
-//                CommentVote::create([
-//                    'comment_id' => $comment_id,
-//                    'user_id' => auth()->id(),
-//                    'vote' => $vote
-//                ]);
-//
-//                $comment->increment('votes', $vote);
-//            }
-//
-//            return redirect()->route('posts.show', $comment->post->id);
-//        }
     }

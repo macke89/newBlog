@@ -49,7 +49,7 @@
                                     <p class="card-body">{{ $comment->text }}</p>
                                     <div class="card-header">
                                         <h6>by {{ $comment->user->name }}</h6>
-                                        <h6>at {{ $comment->created_at }}</h6>
+                                        <h6>at {{ $comment->created_at->diffForHumans() }}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -82,17 +82,7 @@
                                     <div class="card mb-2">
                                         <div class="row m-0">
                                             <div class="col-1 text-center bg-info p-0 vertical-center">
-                                                <div>
-                                                    <a href="{{ route('comment.vote', [$comment->id, 1]) }}">
-                                                        <i class="fa fa-2x fa-sort-asc text-white"
-                                                           aria-hidden="true"></i>
-                                                    </a>
-                                                    <h2 class="text-white">{{ $comment->votes }}</h2>
-                                                    <a href="{{ route('comment.vote', [$comment->id, -1]) }}">
-                                                        <i class="fa fa-2x fa-sort-desc text-white"
-                                                           aria-hidden="true"></i>
-                                                    </a>
-                                                </div>
+                                                @livewire('comment-votes', ['comment' => $comment])
                                             </div>
                                             <div class="col-11 pl-0">
                                                 <div class="card-body">
@@ -100,7 +90,7 @@
                                                 </div>
                                                 <div class="card-header">
                                                     <h6>by {{ $reply->user->name }}</h6>
-                                                    <h6>at {{ $reply->created_at }}</h6>
+                                                    <h6>at {{ $reply->created_at->diffForHumans() }}</h6>
                                                 </div>
                                             </div>
                                         </div>

@@ -10,4 +10,9 @@ class CommentVote extends Model
     use HasFactory;
 
     protected $fillable = ['comment_id', 'user_id', 'vote'];
+
+    public function comment()
+    {
+        return $this->belongsTo(Comment::class);
+    }
 }
