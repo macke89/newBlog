@@ -4,7 +4,9 @@
 
     use App\Models\Comment;
     use App\Models\CommentVote;
+    use App\Models\PostVote;
     use Livewire\Component;
+    use Illuminate\Support\Facades\Redirect;
 
     class CommentVotes extends Component
     {
