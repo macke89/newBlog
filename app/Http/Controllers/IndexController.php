@@ -11,7 +11,8 @@ class IndexController extends Controller
     public function index()
     {
 
-        $posts = DB::table('posts')->latest('id')->paginate(15);
+//        $posts = DB::table('posts')->latest('id')->paginate(15);
+        $posts = Post::paginate();
 
         return view('index', compact('posts'));
     }
