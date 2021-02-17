@@ -31,4 +31,10 @@ class Post extends Model
     {
         return $this->belongsToMany(Comment::class);
     }
+
+//    POST HAS MANY VOTES
+    public function votes()
+    {
+        return $this->hasMany(PostVote::class);
+    }
 }

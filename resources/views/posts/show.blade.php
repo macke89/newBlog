@@ -17,6 +17,17 @@
                     {{ $tag->name }}
                 @endforeach
             </div>
+            {{--RATING--}}
+{{--            <div class="h1">--}}
+{{--                <a href="#">--}}
+{{--                    <i class="fa fa-2x fa-sort-desc text-white" aria-hidden="true"></i>--}}
+{{--                </a>--}}
+{{--                @if($post->votes)--}}
+{{--                    {{ $post->votes }}--}}
+{{--                @else--}}
+{{--                    <i class="fa fa-star"></i>--}}
+{{--                @endif--}}
+{{--            </div>--}}
             {{--EDIT POST IF AUTHOR--}}
             @auth
                 @if($post->user_id == auth()->id())

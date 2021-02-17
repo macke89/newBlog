@@ -41,5 +41,5 @@
 //        COMMENTS
         Route::resource('comments', CommentController::class);
 //        VOTES COMMENTS
-        Route::get('/comment/{comment_id}/vote/{vote}', [CommentController::class, 'vote'])->name('comment.vote');
+//        Route::get('/comment/{comment_id}/vote/{vote}', [CommentController::class, 'vote'])->name('comment.vote');
     });
