@@ -8,12 +8,48 @@
 </p>
 
 # NewBlog
-My first Laravel Test Project. It is a Blog with Registration, Posts and Comments. Build with Laravel/ui
+My first Test Project to get accustomed to Laravel. It is a Blog with Registration, Posts and Comments. Build with Laravel/ui, standard Bootstrap, minimum Design.
+
+---
 
 ## How to run the App
+1. clone or Download Repository
+2. cd into Project Folder
+3. run the following Commands in the Terminal:
+   >composer install 
 
+   >npm install
+4. create a Database
+5. run:
+   >php artisan key:generate
+6. create .evn file from .env.example
+7. change DB connection in your .env file
+8. run:
+   >php artisan key:generate
+   
+    >php artisan migrate:fresh --seed
+---
 ## How to Post
-
+1. Click on "Register"
+2. Fill in the Form
+3. Verify your Email
+4. Click on "Dashboard"
+5. Click on "My Posts"
+6. Click on "New Post"
+7. Fill in all the Fields
+8. Click "Create Post"
+---
 ## User Stories
-
+- User can create Account
+  - Email verification
+- User can Post
+  - User can Update Posts
+  - User can Delete Posts
+- User can Comment
+  - User can Vote on Comments
+  - User can Comment a Comment (one Layer)
+---
 ## Features
+- Posts have Categories
+- Posts have a Header Image
+- The newest Posts are shown in the Sidebar

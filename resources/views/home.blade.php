@@ -13,5 +13,6 @@
 
             {{ __('You are logged in!') }}
         </div>
+        <a class="btn btn-primary m-3" href="{{ route('posts.index') }}">My Posts</a>
     </div>
 @endsection
