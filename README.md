@@ -14,7 +14,7 @@ My first Test Project to get accustomed to Laravel. It is a Blog with Registrati
 
 ## How to run the App
 1. clone or Download Repository
-2. cd into Project Folder
+2. open Terminal and cd into Project Folder
 3. run the following Commands in the Terminal:
    >composer install 
 
@@ -25,9 +25,19 @@ My first Test Project to get accustomed to Laravel. It is a Blog with Registrati
 6. create .evn file from .env.example
 7. change DB connection in your .env file
 8. run:
-   >php artisan key:generate
+   >php artisan storage:link
    
-    >php artisan migrate:fresh --seed
+   >php artisan migrate:fresh --seed
+   
+9. go to **app/Providers/AppServiceProvider.php** and uncomment **View::share('newestPosts', Post::latest()->take(5)->get());**
+
+*You can use the following Account to Login*
+
+**Email:** Admin@admin.com
+
+**Password:** password
+
+
 ---
 ## How to Post
 1. Click on "Register"
@@ -53,3 +63,11 @@ My first Test Project to get accustomed to Laravel. It is a Blog with Registrati
 - Posts have Categories
 - Posts have a Header Image
 - The newest Posts are shown in the Sidebar
+
+## Pictures
+### Table Design
+![Tables](Screenshot%20(13).png)
+
+### App
+![Tables](Screenshot%20(11).png)
+![Tables](Screenshot%20(12).png)
