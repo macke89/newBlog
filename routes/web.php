@@ -36,7 +36,6 @@
 //        DASHBOARD
         Route::get('/home', [HomeController::class, 'index'])->name('home');
 //        POSTS
-//        Route::resource('posts', PostController::class);
         Route::resource('posts', PostController::class)->except('show');
 //        COMMENTS
         Route::resource('comments', CommentController::class);
