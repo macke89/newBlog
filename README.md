@@ -8,7 +8,7 @@
 </p>
 
 # NewBlog
-My first Test Project to get accustomed to Laravel. It is a Blog with Registration, Posts and Comments. Build with Laravel/ui, standard Bootstrap, minimum Design.
+My first Test Project to get accustomed to Laravel. It is a Blog with Registration, Posts and Comments. Build with Laravel/ui, has standard Bootstrap scaffolding.
 
 ---
 
